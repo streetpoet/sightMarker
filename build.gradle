@@ -1,0 +1,42 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+	baseName = 'springBootPlay'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	jcenter()
+	mavenCentral()
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-web-services')
+	compile('org.springframework.boot:spring-boot-devtools')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile group: 'net.coobird', name: 'thumbnailator', version: '0.4.8'
+	compile('mysql:mysql-connector-java')
+    runtime('org.apache.tomcat.embed:tomcat-embed-jasper')
+
+	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2'
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
